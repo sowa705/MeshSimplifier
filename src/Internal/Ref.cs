@@ -1,6 +1,7 @@
+﻿/*
 MIT License
 
-Copyright (c) 2017-2021 Mattias Edlund, 2024 Łukasz Sowa
+Copyright(c) 2017-2020 Mattias Edlund
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +20,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+using System.Runtime.CompilerServices;
+
+namespace MeshSimplifier.Internal
+{
+    internal struct Ref
+    {
+        public int tid;
+        public int tvertex;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Set(int tid, int tvertex)
+        {
+            this.tid = tid;
+            this.tvertex = tvertex;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>12</LangVersion>
+    <Authors>Łukasz Sowa</Authors>
+    <Company>Sowa Systems</Company>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+</Project>
