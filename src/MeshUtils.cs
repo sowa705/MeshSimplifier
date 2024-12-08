@@ -22,10 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#if UNITY_2018_2_OR_NEWER
-#define UNITY_8UV_SUPPORT
-#endif
-
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -41,24 +37,6 @@ namespace MeshSimplifier
         /// The count of supported UV channels.
         /// </summary>
         public static readonly int UVChannelCount = 4;
-
-        /// <summary>
-        /// Returns the UV sets for a specific mesh.
-        /// </summary>
-        /// <param name="mesh">The mesh.</param>
-        /// <returns>The UV sets.</returns>
-        public static IList<Vector4>[] GetMeshUVs(Mesh mesh)
-        {
-            if (mesh == null)
-                throw new ArgumentNullException(nameof(mesh));
-
-            var uvs = new IList<Vector4>[UVChannelCount];
-            for (int channel = 0; channel < UVChannelCount; channel++)
-            {
-                uvs[channel] = GetMeshUVs(mesh, channel);
-            }
-            return uvs;
-        }
 
         /// <summary>
         /// Returns the 2D UV list for a specific mesh and UV channel.

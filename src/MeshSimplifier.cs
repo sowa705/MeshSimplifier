@@ -53,7 +53,7 @@ public sealed class MeshSimplifier
     private const double DenomEpilson = 0.00000001;
     private static readonly int UVChannelCount = 1;
 
-    private SimplificationOptions simplificationOptions = SimplificationOptions.Default;
+    private SimplificationOptions simplificationOptions = new();
     private bool verbose = false;
 
     private int subMeshCount = 0;
@@ -1922,6 +1922,27 @@ public sealed class MeshSimplifier
         {
             Log.Debug("Finished simplification with triangle count {0}", this.triangles.Length);
         }
+    }
+
+    public Mesh ToMesh()
+    {
+        var mesh = new Mesh();
+        mesh.vertices = Vertices.ToArray();
+        mesh.triangles = this.triangles.Data.SelectMany(x=>(new int[] { x.v0, x.v1, x.v2 })).ToArray();
+        mesh.textureCoordinates = [this.UV1.ToArray()];
+        mesh.colors = this.Colors.ToArray();
+        mesh.normals = this.Normals.ToArray();
+        mesh.tangents = this.Tangents.ToArray();
+
+        var allSubMeshes = GetAllSubMeshTriangles();
+        var submeshes = new SubMesh[subMeshOffsets.Length];
+        for (int i = 0; i < subMeshOffsets.Length; i++)
+        {
+            submeshes[i] = new SubMesh(subMeshOffsets[i], allSubMeshes[i].Length);
+        }
+
+        mesh.subMeshes = submeshes;
+        return mesh;
     }
 
     /// <summary>
