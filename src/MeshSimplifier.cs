@@ -1929,19 +1929,19 @@ public sealed class MeshSimplifier
         var mesh = new Mesh();
         mesh.vertices = Vertices.ToArray();
         mesh.triangles = this.triangles.Data.Take(triangles.Length).SelectMany(x=>(new int[] { x.v0, x.v1, x.v2 })).ToArray();
-        if (mesh.textureCoordinates != null)
+        if (this.UV1 != null)
         {
             mesh.textureCoordinates = [this.UV1.ToArray()];
         }
-        if (mesh.colors != null)
+        if (this.Colors != null)
         {
             mesh.colors = this.Colors.ToArray();
         }
-        if (mesh.normals != null)
+        if (this.Normals != null)
         {
             mesh.normals = this.Normals.ToArray();
         }
-        if (mesh.tangents != null)
+        if (this.Tangents != null)
         {
             mesh.tangents = this.Tangents.ToArray();
         }
