@@ -39,12 +39,26 @@ public class Mesh
 
     public void GetUVs(int channel, List<Vector4> uvList)
     {
-        throw new NotImplementedException();
+        var v2List = new List<Vector2>();
+
+        GetUVs(channel, v2List);
+
+        foreach (var var in v2List.Select(x => new Vector4(x.X, x.Y, 0, 0)))
+        {
+            uvList.Add(var);
+        }
     }
 
     public void GetUVs(int channel, List<Vector3> uvList)
     {
-        throw new NotImplementedException();
+        var v2List = new List<Vector2>();
+
+        GetUVs(channel, v2List);
+
+        foreach (var var in v2List.Select(x => new Vector3(x.X, x.Y, 0)))
+        {
+            uvList.Add(var);
+        }
     }
 
     public void GetUVs(int channel, List<Vector2> uvList)

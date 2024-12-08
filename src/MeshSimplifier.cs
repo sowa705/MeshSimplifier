@@ -1924,15 +1924,27 @@ public sealed class MeshSimplifier
         }
     }
 
-    public Mesh ToMesh()
+    public Mesh GetMesh()
     {
         var mesh = new Mesh();
         mesh.vertices = Vertices.ToArray();
         mesh.triangles = this.triangles.Data.Take(triangles.Length).SelectMany(x=>(new int[] { x.v0, x.v1, x.v2 })).ToArray();
-        mesh.textureCoordinates = [this.UV1.ToArray()];
-        mesh.colors = this.Colors.ToArray();
-        mesh.normals = this.Normals.ToArray();
-        mesh.tangents = this.Tangents.ToArray();
+        if (mesh.textureCoordinates != null)
+        {
+            mesh.textureCoordinates = [this.UV1.ToArray()];
+        }
+        if (mesh.colors != null)
+        {
+            mesh.colors = this.Colors.ToArray();
+        }
+        if (mesh.normals != null)
+        {
+            mesh.normals = this.Normals.ToArray();
+        }
+        if (mesh.tangents != null)
+        {
+            mesh.tangents = this.Tangents.ToArray();
+        }
 
         var allSubMeshes = GetAllSubMeshTriangles();
         var submeshes = new SubMesh[subMeshOffsets.Length];
