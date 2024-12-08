@@ -1,4 +1,6 @@
 # MeshSimplifier
+![NuGet Downloads](https://img.shields.io/nuget/dt/Sowa705.MeshSimplifier?color=green&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FSowa705.MeshSimplifier)
+
 
 Trimmed down fork of the [UnityMeshSimplifier](https://github.com/Whinarn/UnityMeshSimplifier) Library adapted for modern non-Unity .NET 9+ projects
 
