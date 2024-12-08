@@ -1928,7 +1928,7 @@ public sealed class MeshSimplifier
     {
         var mesh = new Mesh();
         mesh.vertices = Vertices.ToArray();
-        mesh.triangles = this.triangles.Data.SelectMany(x=>(new int[] { x.v0, x.v1, x.v2 })).ToArray();
+        mesh.triangles = this.triangles.Data.Take(triangles.Length).SelectMany(x=>(new int[] { x.v0, x.v1, x.v2 })).ToArray();
         mesh.textureCoordinates = [this.UV1.ToArray()];
         mesh.colors = this.Colors.ToArray();
         mesh.normals = this.Normals.ToArray();
