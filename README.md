@@ -3,6 +3,9 @@
 
 
 Trimmed down fork of the [UnityMeshSimplifier](https://github.com/Whinarn/UnityMeshSimplifier) Library adapted for modern non-Unity .NET 9+ projects
+## Installation
+
+Install the NuGet package [Sowa705.MeshSimplifier](https://www.nuget.org/packages/Sowa705.MeshSimplifier)
 
 ## Basic usage
 
